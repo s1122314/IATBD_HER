@@ -1,9 +1,13 @@
 <a class="productCard_back_to_home" href="/"> Home </a>
+@if(Auth::user()->role === "Admin")
+        <button class="productCard_button_user_block" onclick="window.location.href='/user/{{$user->id}}/block'"> Block</button>
+        <button class="productCard_button_user_block" onclick="window.location.href='/user/{{$user->id}}/unblock'"> Unblock</button>
+    @endif
 
-<article class="productCard a-popup">
+<article class="UserCard a-popup">
     <figure class="productGridCard_figure">
         <img class="productGridCard_image" src={{$user->image}} alt= {{$user->name}}/>
-    </figure>>
+    </figure>
     <section class="productCard_text">
         <p>{{$user->name}}</p>
     </section>
@@ -11,4 +15,5 @@
         <button class="productCard_button_user" onclick="window.location.href='/user/{{$user->id}}/products'"> Bekijk producten</button>
         <button class="productCard_button_user" onclick="window.location.href='/user/{{$user->id}}/create'"> Beoordeel gebruiker </button>
     </section>
+
 </article>

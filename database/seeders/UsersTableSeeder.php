@@ -30,5 +30,14 @@ class UsersTableSeeder extends Seeder
             "age" => 17,
             "image" => "/img/no-profile-picture.jpg",
         ]);
+
+        DB::table("users")->insert([
+            "name" => "Joop Lusink",
+            "email" => "jooplusink@gmail.com",
+            "password" => bcrypt("laravel"),
+            "age" => 58,
+            "role" => "blocked",
+            "image" => "/img/no-profile-picture.jpg",
+        ]);
     }
 }

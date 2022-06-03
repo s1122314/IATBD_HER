@@ -16,11 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware(["auth", "admin"])->group(function(){
     Route::get("/product/destroy", [\App\Http\Controllers\ProductController::class, "delete"]);
     Route::post("/products", [\App\Http\Controllers\ProductController::class, "destroy"]);
+    Route::get('/user/{id}/block', [\App\Http\Controllers\UserController::class, 'block']);
+    Route::get('/user/{id}/unblock', [\App\Http\Controllers\UserController::class, 'unblock']);
 
 });
 
-Route::middleware(["auth"])->group(function(){
-    Route::get("/product/order", [\App\Http\Controllers\ProductController::class, "order"]);
+Route::middleware(["auth", "gast"])->group(function(){
+    Route::get("/product/{id}/order", [\App\Http\Controllers\ProductController::class, "order"]);
     Route::post("/ordered", [\App\Http\Controllers\ProductController::class, "ordered"]);
     Route::get("/product/review", [\App\Http\Controllers\ReviewController::class, "index"]);
     Route::get("/user/{id}/create", [\App\Http\Controllers\ReviewController::class, "create"]);
@@ -32,10 +34,15 @@ Route::middleware(["auth"])->group(function(){
     Route::get("/product/create", [\App\Http\Controllers\ProductController::class, "create"]);
     Route::post("/product", [\App\Http\Controllers\ProductController::class, "store"]);
 
+    Route::get('image-upload', [ \App\Http\Controllers\ImageUploadController::class, 'imageUpload' ])->name('image.upload');
+    Route::post('image-upload', [ \App\Http\Controllers\ImageUploadController::class, 'imageUploadPost' ])->name('image.upload.post');
+
     Route::get("/", [\App\Http\Controllers\ProductController::class, "index"]);
     Route::get("/product", [\App\Http\Controllers\ProductController::class, "index"]);
     Route::get("/product/{id}", [\App\Http\Controllers\ProductController::class, "show"]);
 });
+
+    Route::get("/blocked", [\App\Http\Controllers\UserController::class, "blocked"]);
 
 
 

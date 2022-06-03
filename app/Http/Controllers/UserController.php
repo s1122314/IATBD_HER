@@ -29,17 +29,22 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view("users.create", [
-        "names" => \App\Models\User::all(),
-        ]);
+
+        
+        return view("users.create",[
+            "users" => \App\Models\User::all(),
+        ] );
+
+        
     }
 
     public function store(Request $request, \App\Models\User $user){
         
-        $review = $request->input("review");
+        $user->review = $request->input("review");
+        $user->id = $request->input("id");
 
         try{
-            DB::update('update product set review = "review" where name = ?', [$name]);
+            DB::update("UPDATE users SET review = '$user->review' WHERE id = '$user->id'");
             return redirect('/');
         }
         catch(Exception $e){
@@ -51,6 +56,26 @@ class UserController extends Controller
         $user->review = $request->input("review");
         DB::update('update from product where name = ?', [$name]);
         return redirect('/');
+}
+
+    public function block($id) {
+        $user = \App\Models\User::find($id);
+        $user->role = 'blocked';
+        $user->save();
+
+        return redirect('/user/' . $id);
+}
+
+    public function unblock($id) {
+        $user = \App\Models\User::find($id);
+        $user->role = 'Gast';
+        $user->save();
+
+        return redirect('/user/' . $id);
+}
+
+    public function blocked(){
+        return view("blocked");
 }
 
 

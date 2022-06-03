@@ -53,6 +53,8 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
+        'block' =>  \App\Http\Middleware\BlockedRedirect::class,
+        'gast' =>  \App\Http\Middleware\CheckIfGast::class,
         'admin' =>  \App\Http\Middleware\CheckIfAdmin::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

@@ -26,6 +26,13 @@
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
 
+            <!-- Age -->
+            <div class="mt-4">
+                <x-label for="age" :value="__('Age')" />
+
+                <x-input id="age" class="block mt-1 w-full" type="text" name="age" :value="old('age')" required autofocus/>
+            </div>
+
             <!-- Password -->
             <div class="mt-4">
                 <x-label for="password" :value="__('Password')" />

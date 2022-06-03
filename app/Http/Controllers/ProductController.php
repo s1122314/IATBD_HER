@@ -31,7 +31,8 @@ class ProductController extends Controller
     }
 
     public function store(Request $request, \App\Models\Product $product){
-        
+
+
         $product->name = $request->input("name");
         $product->kind = $request->input("kind");
         $product->description = $request->input("description");
@@ -65,9 +66,9 @@ class ProductController extends Controller
         }
 
         
-    public function order(){
+    public function order($id){
         return view("products.order", [
-            "names" => \App\Models\Product::all(),
+            "names" => \App\Models\Product::find($id),
             ]);
     }
 

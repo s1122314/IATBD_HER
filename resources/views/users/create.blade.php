@@ -12,18 +12,18 @@ Maak product
         @csrf
 
         <section class="create-form_section">
-            <label for="name">Naam </label>
-                <input class="create-form_input" name="name" id="name" type="text-area"></input>
+            <label for="name">Review over: </label>
+            <input class="create-form_input" name="name" id="name" type="text"></input>
         </section>
 
         <section class="create-form_section">
             <label for="description">review </label>
             <textarea class="create-form_input create-form_input--big" name="description" id="description" type="text-area"></textarea>
         </section>
-        <input type="hidden" name="user_id" id="user_id" value="{{Auth::user()->id}}"/>
+        <input type="hidden" name="id" id="id"/>
 
         <section class="create-form_section">
-            <button class="create-form_button" type="submit">Product aanbieden</button>
+            <button class="create-form_button" type="submit">Laat review achter</button>
         </section>
 
     </form>

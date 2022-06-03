@@ -1,5 +1,5 @@
 <li class="a-popup u-list-style-none productGridCard" data-kind-of-product={{$product->kind}}>
-    <a href="/product/{{$product->id}}">
+    <a href="/product/{{$product->id}}/order">
         <article>
             <header class="productGridCard_header u-flex-v-center">
                 <h2 class="productGridCard_heading"> {{$product->kind}} {{$product->name}}</h2>
@@ -10,6 +10,11 @@
             <section class="productGridCard_textSection u-flex-v-center">
                 <p class="productGridCard_text">{{$product->description}}</p>
             </section>
+            <section class="productGridCard_textSection u-flex-v-center">
+                <p class="productGridCard_text"> {{$product->owner_name}}</p>
+            </section>
         </article>
     </a>
 </li>
+
+                

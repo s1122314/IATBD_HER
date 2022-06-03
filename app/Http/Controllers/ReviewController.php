@@ -21,7 +21,7 @@ class ReviewController extends Controller
     }
 
     public function store(Request $request, \App\Models\Review $review){
-        
+
         $review->name = $request->input("name");
         $review->description = $request->input("description");
         try{

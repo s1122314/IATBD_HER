@@ -7,8 +7,9 @@
 <section class="productCard_btnSection">
     <button class="productCard_button" onclick="window.location.href='/'"> Home </button>
     <button class="productCard_button" onclick="window.location.href='/product/create'"> Upload product </button>
+    @if(Auth::user()->role === "Admin")
     <button class="productCard_button" onclick="window.location.href='/product/destroy'"> verwijder product </button>
-    <button class="productCard_button" onclick="window.location.href='/dashboard'"> Ga naar je profiel </button>
+    @endif
     <button class="productCard_button" onclick="window.location.href='/user'"> Bekijk profielen </button>
 </section>
 

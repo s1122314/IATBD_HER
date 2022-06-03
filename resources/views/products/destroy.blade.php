@@ -10,8 +10,8 @@ Maak product
     <form class="create-form_form" action="/products" method="POST">
 
         @csrf
-
-        <label for="name">Naam </label>
+        <br>
+        <label class="label_destroy" for="name">Naam </label>
             <select class="create-form_input" id="name" name="name">
                 @foreach($names as $names)
                     <option value={{$names->name}}> {{$names->name}} </option>

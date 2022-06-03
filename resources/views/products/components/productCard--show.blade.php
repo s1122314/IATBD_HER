@@ -11,6 +11,6 @@
     
 
     <section class="productCard_btnSection">
-        <button class="productCard_button" onclick="window.location.href='/product/order'"> Order now </button>
+        <button class="productCard_button" onclick="window.location.href='/product/order'"> Lenen </button>
     </section>
 </article>

@@ -22,5 +22,9 @@ class RolesTableSeeder extends Seeder
             "role" => "Gast"
         ]);
 
+        DB::table('roles')->insert([
+            'role' => 'blocked',
+        ]);
+
     }
 }

@@ -40,9 +40,7 @@ Maak product
 
         <label for="name">Naam van te bestellen product </label>
             <select class="create-form_input" id="name" name="name">
-                @foreach($names as $names)
-                    <option value={{$names->name}}> {{$names->name}} </option>
-                @endforeach
+                <option value={{$names->name}}> {{$names->name}} </option>
             </select>
         </section>
             
@@ -51,7 +49,7 @@ Maak product
         <input type="hidden" name="user_id" id="user_id" value="{{Auth::user()->id}}"/>
 
         <section class="create-form_section">
-            <button class="create-form_button" type="submit">Bestellen</button>
+            <button class="create-form_button" type="submit">Leen product</button>
         </section>
 
     </form>

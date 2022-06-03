@@ -28,6 +28,7 @@ Maak product
             <label for="description">Beschrijving </label>
             <textarea class="create-form_input create-form_input--big" name="description" id="description" type="text-area"></textarea>
         </section>
+        
 
         <section class="create-form_section">
             <label for="image">Afbeelding </label>
@@ -36,6 +37,8 @@ Maak product
                     <option value={{$image->image}}> {{$image->image}} </option>
                 @endforeach
             </select>
+
+        
         </section>
 
         <input type="hidden" name="user_id" id="user_id" value="{{Auth::user()->id}}"/>

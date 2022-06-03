@@ -10,4 +10,9 @@ class Review extends Model
     use HasFactory;
     protected $table = "review";
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class);
+    }
 }
